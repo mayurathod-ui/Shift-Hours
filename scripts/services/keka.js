@@ -52,6 +52,9 @@ async function login() {
 
 /** Live Keka sync (needs `npm start`; the page stays usable without it). */
 export async function initKeka() {
+  // The Keka bridge only exists on a local `npm start`; the hosted site is paste-only.
+  if (!['localhost', '127.0.0.1'].includes(location.hostname)) return;
+
   $('kekaBtn').addEventListener('click', () => {
     const mode = $('kekaBtn').dataset.mode;
     if (mode === 'wait') return;

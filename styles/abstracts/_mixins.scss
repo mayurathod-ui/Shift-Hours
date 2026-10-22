@@ -1,0 +1,115 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// ---- layout helpers -------------------------------------------------------
+
+@mixin flex($direction: row, $align: null, $justify: null, $gap: null, $wrap: null) {
+  display: flex;
+  flex-direction: $direction;
+  @if $align { align-items: $align; }
+  @if $justify { justify-content: $justify; }
+  @if $gap { gap: $gap; }
+  @if $wrap { flex-wrap: $wrap; }
+}
+
+@mixin flex-center($gap: null) {
+  @include flex($align: center, $justify: center, $gap: $gap);
+}
+
+@mixin column($gap: null) {
+  @include flex(column, $gap: $gap);
+}
+
+// ---- responsive -----------------------------------------------------------
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) { @content; }
+}
+
+@mixin mobile {
+  @media (max-width: $bp-mobile) { @content; }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) { @content; }
+}
+
+// ---- surfaces -------------------------------------------------------------
+
+@mixin card($radius: 20px) {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: $radius;
+}
+
+@mixin inset($radius: 16px) {
+  background: var(--inset);
+  border: 1px solid var(--line2);
+  border-radius: $radius;
+}
+
+@mixin pill($height: null) {
+  @include flex($align: center, $gap: 8px);
+  @if $height { height: $height; }
+  border-radius: 999px;
+}
+
+// ---- interactive ----------------------------------------------------------
+
+@mixin focus-ring($color: var(--accent), $offset: 1px) {
+  outline: 2px solid $color;
+  outline-offset: $offset;
+}
+
+@mixin hover-lift {
+  &:hover {
+    color: var(--text);
+    border-color: $border-hover;
+  }
+}
+
+@mixin icon-tile($size: 40px, $radius: 12px) {
+  @include flex-center;
+  width: $size;
+  height: $size;
+  border-radius: $radius;
+  flex: 0 0 auto;
+}
+
+// Translucent tint of a colour, used for chips/tiles/tips.
+@mixin tint($color, $alpha: 0.14) {
+  background: rgba($color, $alpha);
+}
+
+// ---- form controls --------------------------------------------------------
+
+@mixin control {
+  font: inherit;
+  color: var(--text);
+  background: var(--inset);
+  border: 1px solid var(--line2);
+  border-radius: 12px;
+  width: 100%;
+
+  &:focus { @include focus-ring; }
+}
+
+@mixin icon-button($size: 52px) {
+  @include flex-center;
+  flex: 0 0 auto;
+  width: $size;
+  height: $size;
+  border: 1px solid var(--line2);
+  border-radius: 14px;
+  background: var(--inset);
+  color: var(--soft);
+  cursor: pointer;
+  @include hover-lift;
+}
+
+// ---- misc -----------------------------------------------------------------
+
+@mixin thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: $scroll-thumb transparent;
+}

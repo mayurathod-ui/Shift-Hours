@@ -1,0 +1,8 @@
+@use '../abstracts' as *;
+
+:root {
+  @each $name, $value in $theme {
+    --#{$name}: #{$value};
+  }
+  --mono: #{$font-mono};
+}

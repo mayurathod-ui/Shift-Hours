@@ -1,0 +1,9 @@
+# local-only: Keka bridge + credentials
+server.js
+auth.json
+auth.json.tmp
+package.json
+package-lock.json
+node_modules/
+*.log
+.env

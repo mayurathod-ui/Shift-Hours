@@ -1,0 +1,54 @@
+@use '../abstracts' as *;
+
+.card {
+  @include card;
+}
+
+.panel-head {
+  @include flex($align: center, $gap: 12px);
+}
+
+.icon-tile {
+  @include icon-tile;
+}
+
+// Colour variants: .c-blue, .c-teal, ...
+@each $name, $color in $tints {
+  .c-#{$name} {
+    @include tint($color);
+    color: $color;
+  }
+}
+
+.credit {
+  @include flex-center(10px);
+  padding: 12px 16px;
+  border-radius: 14px;
+  // background: var(--card);
+  // border: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+  position: absolute;
+  left: -85px;
+  transform: rotate(-90deg);
+  bottom: 100px;
+  opacity: 0.7;
+
+  svg {
+    color: var(--accent);
+    flex: 0 0 auto;
+  }
+
+  b {
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+}
+
+.empty {
+  margin: 0;
+  padding: 24px 0;
+  font-size: 15px;
+  color: var(--muted);
+}

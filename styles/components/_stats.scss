@@ -1,0 +1,28 @@
+@use '../abstracts' as *;
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.stat {
+  @include flex($align: center, $gap: 14px);
+  padding: 18px;
+  border-radius: 18px;
+
+  .icon-tile {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 600;
+}

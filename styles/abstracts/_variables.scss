@@ -1,0 +1,41 @@
+// Design tokens. Colours are exposed as CSS custom properties in base/_root.scss
+// so the page can be re-themed at runtime; the maps below are the single source.
+
+$theme: (
+  'accent': #8FA8FF, // change this to re-colour the whole page
+  'bg': #0B0F1A,
+  'card': #141A2C,
+  'inset': #0F1424,
+  'line': #242B45,
+  'line2': #2A3150,
+  'track': #232A44,
+  'text': #E8ECF7,
+  'soft': #C9CFE0,
+  'muted': #9AA3BD,
+  'teal': #5EEAD4,
+  'orange': #FFB86B,
+);
+
+// Static colours that are not themeable.
+$border-hover: #3A4366;
+$placeholder: #6B7491;
+$scroll-thumb: #3A4366;
+$scroll-thumb-hover: #4B5680;
+$tip-text: #F3D9BC;
+
+// Tinted icon-tile palette: name -> base colour.
+$tints: (
+  'blue': #8FA8FF,
+  'teal': #5EEAD4,
+  'violet': #B794F6,
+  'orange': #FFB86B,
+  'pink': #F472B6,
+  'yellow': #FACC15,
+);
+
+$font-mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+$font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+// Breakpoints
+$bp-desktop: 940px;
+$bp-mobile: 560px;

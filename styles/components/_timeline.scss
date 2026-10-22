@@ -1,0 +1,97 @@
+@use '../abstracts' as *;
+
+.timeline {
+  @include column(18px);
+  padding: 22px 24px;
+}
+
+.tl-head {
+  @include flex($align: center, $justify: space-between, $gap: 10px, $wrap: wrap);
+}
+
+.legend {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--muted);
+
+  span {
+    @include flex($align: center, $gap: 6px);
+  }
+}
+
+.sw {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+}
+
+.track {
+  position: relative;
+  height: 44px;
+  background: var(--track);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.block {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  background: var(--accent);
+  border-radius: 6px;
+}
+
+.now-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--orange);
+}
+
+.ticks {
+  position: relative;
+  height: 18px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  font-family: var(--mono);
+
+  span {
+    position: absolute;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+}
+
+// ---- sessions ----
+.sessions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.session {
+  @include inset(14px);
+  @include flex($align: center, $justify: space-between, $gap: 10px);
+  padding: 12px 14px;
+}
+
+.session-n {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.session-t {
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.session-d {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+}

@@ -1,0 +1,117 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+.hero {
+  @include flex($align: center, $gap: 32px, $wrap: wrap);
+  padding: 28px;
+  border-radius: 24px;
+}
+
+.ring {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  flex: 0 0 auto;
+  margin: 0 auto;
+}
+
+.ring-fill {
+  transition: stroke-dasharray 0.6s ease;
+
+  @include reduced-motion { transition: none; }
+}
+
+.ring-center {
+  @include flex-center(2px);
+  flex-direction: column;
+  position: absolute;
+  inset: 0;
+}
+
+#pct {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.hero-info {
+  @include column(18px);
+  flex: 1 1 300px;
+  min-width: 0;
+}
+
+.hero-top {
+  @include flex($align: center, $justify: space-between, $gap: 12px, $wrap: wrap);
+}
+
+#heroLabel {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.chip {
+  @include pill;
+  gap: 6px;
+  padding: 7px 14px;
+  font-size: 14px;
+  font-weight: 700;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: currentColor;
+  }
+
+  &.yes {
+    @include tint(map.get($theme, 'teal'), 0.16);
+    color: var(--teal);
+  }
+
+  &.no {
+    @include tint(map.get($theme, 'orange'), 0.16);
+    color: var(--orange);
+  }
+}
+
+#heroValue {
+  font-size: 60px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+
+  @include mobile { font-size: 44px; }
+}
+
+#heroSub {
+  font-size: 15px;
+  color: var(--soft);
+}
+
+.mini-row {
+  @include flex($gap: 12px, $wrap: wrap);
+}
+
+.mini {
+  @include inset;
+  @include column(4px);
+  flex: 1 1 180px;
+  padding: 14px 16px;
+}
+
+.mini-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.mini-value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.mini-note {
+  font-size: 12px;
+  color: var(--muted);
+}

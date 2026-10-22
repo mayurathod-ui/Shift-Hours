@@ -1,0 +1,96 @@
+@use '../abstracts' as *;
+
+.wrap {
+  max-width: 1260px;
+  margin: 0 auto;
+  @include column(10px);
+}
+
+// ---- header ----
+header {
+  @include flex($align: center, $justify: space-between, $gap: 18px, $wrap: wrap);
+
+  @include desktop {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 108px;
+    // background: var(--bg);
+    background: rgba(11, 15, 26, 0.4);
+    backdrop-filter: blur(20px);
+  }
+}
+
+.brand {
+  @include flex($align: center, $gap: 16px);
+}
+
+.logo {
+  @include flex-center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--accent);
+  color: var(--bg);
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+
+  @include mobile { font-size: 26px; }
+}
+
+.pills {
+  @include flex($align: center, $gap: 10px, $wrap: wrap);
+}
+
+.pill {
+  @include pill(44px);
+  padding: 0 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--soft);
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--teal);
+}
+
+#clock {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+// ---- page columns ----
+.main {
+  @include flex($align: flex-start, $gap: 24px, $wrap: wrap);
+
+  @include desktop { flex-wrap: nowrap; }
+}
+
+.side {
+  @include column(14px);
+  flex: 1 1 320px;
+  max-width: 410px;
+  min-width: 0;
+
+  @include desktop {
+    position: sticky;
+    top: 124px;
+    max-height: calc(100vh - 140px);
+  }
+}
+
+.results {
+  @include column(20px);
+  flex: 999 1 580px;
+  min-width: 0;
+}

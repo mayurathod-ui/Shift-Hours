@@ -1,0 +1,106 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+.input-panel {
+  @include column(20px);
+  min-height: 0;
+  padding: 24px;
+
+  @include desktop { overflow-y: auto; }
+}
+
+.field {
+  @include column(8px);
+}
+
+.field-row {
+  @include flex($align: center, $justify: space-between);
+}
+
+.field-tools {
+  @include flex($align: center, $gap: 8px);
+}
+
+select,
+textarea { @include control; }
+
+select {
+  height: 48px;
+  padding: 0 14px;
+  font-size: 15px;
+}
+
+textarea {
+  resize: none;
+  padding: 14px 16px;
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.75;
+
+  &::placeholder { color: $placeholder; }
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  @include tint(map.get($theme, 'teal'), 0.12);
+  color: var(--teal);
+}
+
+.paste-btn {
+  @include pill(26px);
+  padding: 0 10px;
+  gap: 6px;
+  border: 1px solid var(--line2);
+  background: var(--inset);
+  color: var(--soft);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  @include hover-lift;
+}
+
+// ---- Keka connection bar ----
+.keka-bar {
+  @include inset(12px);
+  @include flex($align: center, $gap: 10px);
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--soft);
+}
+
+.keka-msg {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.keka-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--muted);
+  flex: 0 0 auto;
+
+  &.on { background: var(--teal); }
+  &.wait { background: var(--orange); }
+}
+
+// ---- tip ----
+.tip {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  @include tint(map.get($theme, 'orange'), 0.10);
+  border: 1px solid rgba(map.get($theme, 'orange'), 0.25);
+
+  p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.55;
+    color: $tip-text;
+  }
+}

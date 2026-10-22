@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
   <title>Shift Hours</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,6 +118,14 @@
             </svg>
             <p>Duplicate punches? Keep only the last one so entries alternate in → out.</p>
           </div>
+
+          <details class="tip" style="display:block">
+            <summary style="cursor:pointer;font-weight:600">One-click import from Keka (no paste)</summary>
+            <p style="margin:10px 0 6px">1. Drag this button to your bookmarks bar (one time):</p>
+            <a id="bmLink" class="paste-btn" href="#" draggable="true" style="display:inline-flex;text-decoration:none">&#9201; Shift Hours</a>
+            <p style="margin:10px 0 0">2. Open your Keka site while logged in and click the bookmark. This page opens with today&rsquo;s punches filled in.
+              It runs inside your own Keka tab, so nothing is stored and no login or token ever leaves Keka.</p>
+          </details>
         </section>
 
       </div>
